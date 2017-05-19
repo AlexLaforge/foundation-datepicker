@@ -99,12 +99,36 @@ $fdatepicker-inline-width: 220px !default;
 		padding: 4px 8px;
 		background: $fdatepicker-ui-bg;
 		cursor: pointer;
-		&.active.day, &.active.year { background: $fdatepicker-ui-primary; }
+		&.active.day, &.active.month, &.active.year {
+			background: $fdatepicker-ui-primary;
+			color:$white;
+		}
 		&.old , &.new { color: $fdatepicker-ui-old-new-color; }
-		span.active { background: $fdatepicker-ui-primary; }
+		span.active {
+			background: $fdatepicker-ui-primary;
+			color:$white;
+		}
 		&.day.disabled { color: $fdatepicker-ui-disabled; }
+		&.day:not(.disabled):not(.active) {
+			transition:background-color, color, .15s linear;
+			&:hover,
+			&:active,
+			&:focus{
+				color:$white;
+				background-color: rgba($fdatepicker-ui-primary,.5);
+			}
+		}
 		span.month.disabled, span.year.disabled {
 			color: $fdatepicker-ui-disabled;
+		}
+		span.month:not(.disabled):not(.active), span.year:not(.disabled):not(.active) {
+			transition:background-color, color, .15s linear;
+			&:hover,
+			&:active,
+			&:focus{
+				color:$white;
+				background-color: rgba($fdatepicker-ui-primary,.5);
+			}
 		}
 	}
 	th {
@@ -116,9 +140,26 @@ $fdatepicker-inline-width: 220px !default;
 		padding: 4px 8px;
 		background: $fdatepicker-ui-bg;
 		cursor: pointer;
-		&.active.day, &.active.year { background: $fdatepicker-ui-primary; }
-		&.date-switch { width: 145px; }
-		span.active { background: $fdatepicker-ui-primary; }
+		&.active.day, &.active.month, &.active.year {
+			background: $fdatepicker-ui-primary;
+			color:$white;
+		}
+		&.date-switch {
+			width: 145px;
+			color: $fdatepicker-ui-primary;
+			transition:background-color, color, .15s linear;
+			&:hover,
+			&:active,
+			&:focus{
+				color:$white;
+				background-color: rgba($fdatepicker-ui-primary,.5);
+				border-radius:3px;
+			}
+		}
+		span.active {
+			background: $fdatepicker-ui-primary;
+			color:$white;
+		}
 	}
 	.cw {
 		font-size: 10px;
@@ -131,9 +172,18 @@ $fdatepicker-inline-width: 220px !default;
 	&.years div.datepicker-years { display: block; }
 	thead tr:first-child th {
 		cursor: pointer;
+		color:$fdatepicker-ui-primary;
+		transition:background-color, color, .15s linear;
+		border-radius:3px;
 		&.cw {
 			cursor: default;
 			background-color: transparent;
+		}
+		&:hover,
+		&:active,
+		&:focus{
+			color:$white;
+			background-color: rgba($fdatepicker-ui-primary,.5);
 		}
 	}
 	tfoot tr:first-child th { cursor: pointer; }
